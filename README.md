@@ -1,6 +1,24 @@
-# Tabby — Chrome Tab Manager
+<div align="center">
 
-A local Chrome tab management app with AI-powered organization. Auto-discovers open tabs via the Chrome DevTools Protocol, saves browsing sessions, and uses Ollama for classification, summarization, and smart grouping.
+# Tabby
+
+**Chrome tab manager with AI-powered organization**
+
+Auto-discovers open tabs via the Chrome DevTools Protocol, saves browsing sessions, and uses Ollama for classification, summarization, and smart grouping.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/dark-mode.png">
+  <source media="(prefers-color-scheme: light)" srcset="docs/light-mode.png">
+  <img alt="Tabby dashboard" src="docs/light-mode.png" width="100%">
+</picture>
+
+<br>
+
+<sub>Light and dark mode with live tab previews, AI classification, and window grouping</sub>
+
+</div>
+
+<br>
 
 ## Features
 
