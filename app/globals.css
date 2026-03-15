@@ -4,6 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
 :root {
     --background: oklch(1 0 0);
     --foreground: oklch(0.147 0.004 49.25);
@@ -113,6 +114,47 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@keyframes sheet-slide-in-from-right {
+  from { translate: 100% 0; opacity: 0; }
+  to { translate: 0 0; opacity: 1; }
+}
+@keyframes sheet-slide-out-to-right {
+  from { translate: 0 0; opacity: 1; }
+  to { translate: 100% 0; opacity: 0; }
+}
+@keyframes sheet-slide-in-from-left {
+  from { translate: -100% 0; opacity: 0; }
+  to { translate: 0 0; opacity: 1; }
+}
+@keyframes sheet-slide-out-to-left {
+  from { translate: 0 0; opacity: 1; }
+  to { translate: -100% 0; opacity: 0; }
+}
+@keyframes sheet-slide-in-from-top {
+  from { translate: 0 -100%; opacity: 0; }
+  to { translate: 0 0; opacity: 1; }
+}
+@keyframes sheet-slide-out-to-top {
+  from { translate: 0 0; opacity: 1; }
+  to { translate: 0 -100%; opacity: 0; }
+}
+@keyframes sheet-slide-in-from-bottom {
+  from { translate: 0 100%; opacity: 0; }
+  to { translate: 0 0; opacity: 1; }
+}
+@keyframes sheet-slide-out-to-bottom {
+  from { translate: 0 0; opacity: 1; }
+  to { translate: 0 100%; opacity: 0; }
+}
+@keyframes sheet-overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes sheet-overlay-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 @layer base {

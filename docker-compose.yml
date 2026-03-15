@@ -1,0 +1,42 @@
+services:
+  chrome-proxy:
+    image: nginx:alpine
+    volumes:
+      - ./nginx-chrome-proxy.conf:/etc/nginx/conf.d/default.conf:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  tabby:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - tabby-data:/app/data
+      - "${HOME}/Library/Application Support/Google/Chrome/DevToolsActivePort:/app/chrome-debug-info:ro"
+    environment:
+      - DATABASE_PATH=/app/data/tabby.db
+      - DEVTOOLS_PORT_FILE=/app/chrome-debug-info
+      - CHROME_WS_HOST=chrome-proxy
+      - OLLAMA_URL=http://host.docker.internal:11434
+    depends_on:
+      - chrome-proxy
+    restart: unless-stopped
+    develop:
+      watch:
+        - action: rebuild
+          path: ./app
+        - action: rebuild
+          path: ./components
+        - action: rebuild
+          path: ./lib
+        - action: rebuild
+          path: ./types
+        - action: rebuild
+          path: package.json
+        - action: rebuild
+          path: bun.lock
+        - action: rebuild
+          path: next.config.mjs
+
+volumes:
+  tabby-data:
